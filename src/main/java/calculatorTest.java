@@ -1,3 +1,4 @@
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -9,18 +10,21 @@ import java.net.URL;
 
 public class calculatorTest {
 
-    AndroidDriver driver;
+    AppiumDriver driver;
 
     @BeforeTest
     public void AndroidSetup() throws MalformedURLException {
 
         DesiredCapabilities dc = new DesiredCapabilities();
 
-        dc.setCapability("plaformVersion", "9.0");
-        dc.setCapability("deviceName", "Android");
-        dc.setCapability("platformName", "Android");
+        dc.setCapability("platformVersion", "9.0");
+//        dc.setCapability("browserName", "Android");
+        dc.setCapability("deviceName", "emulator-5556");
+        dc.setCapability("platform", "android");
+        dc.setCapability("appWaitDuration","50000");
 
-        dc.setCapability("appPackage","com.google.android.calculator");
+        dc.setCapability("automationName","uiAutomator2");
+        dc.setCapability("appPackage","com.google.android.calculatorTest");
         dc.setCapability("appActivity", "com.android.calculator2.CalculatorGoogle");
         driver = new AndroidDriver(new URL("http://localhost:4723/wd/hub"),dc);
     }
