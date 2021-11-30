@@ -10,26 +10,25 @@ import java.net.URL;
 
 public class calculatorTest {
 
-    AppiumDriver driver;
+    public static AppiumDriver driver;
 
     @BeforeTest
-    public void AndroidSetup() throws MalformedURLException {
+    public void setup() throws MalformedURLException {
 
         DesiredCapabilities dc = new DesiredCapabilities();
 
         dc.setCapability("platformVersion", "9.0");
-//        dc.setCapability("browserName", "Android");
-        dc.setCapability("deviceName", "emulator-5556");
-        dc.setCapability("platform", "android");
-        dc.setCapability("appWaitDuration","50000");
-
-        dc.setCapability("automationName","uiAutomator2");
-        dc.setCapability("appPackage","com.google.android.calculatorTest");
+        dc.setCapability("platform", "ANDROID");
+        dc.setCapability("deviceName", "AVD");
+        dc.setCapability("appPackage","com.google.android.calculator");
         dc.setCapability("appActivity", "com.android.calculator2.CalculatorGoogle");
-        driver = new AndroidDriver(new URL("http://localhost:4723/wd/hub"),dc);
+
+
+        driver = new AppiumDriver(new URL("http://0.0.0.0:4723/wd/hub"),dc);
+
     }
 
-    @Test(priority = 0)
+    @Test(priority = 1)
     public void addOperation() throws InterruptedException {
         Thread.sleep(2000);
 
@@ -42,17 +41,38 @@ public class calculatorTest {
         driver.findElement(By.id("eq")).click();
 
         String actualResult = driver.findElement(By.id("result")).getText();
-        Assert.assertEquals(actualResult, "15");
+        Assert.assertEquals(actualResult, "16");
 
         System.out.println("Add Operation: Pass");
 
     }
 
-//    @AfterTest
-//    public  void tearDown()
-//    {
-//        driver.quit();
-//    }
+    @Test(priority = 0)
+    public void subOperation() throws InterruptedException {
+        Thread.sleep(2000);
+
+        driver.findElement(By.id("digit_9")).click();
+
+        driver.findElement(By.id("op_sub")).click();
+
+        driver.findElement(By.id("digit_7")).click();
+
+        driver.findElement(By.id("eq")).click();
+
+        String actualResult = driver.findElement(By.id("result")).getText();
+        Assert.assertEquals(actualResult, "2");
+
+        System.out.println("SUB Operation: Pass");
+
+    }
+
+
+
+    @AfterTest
+    public  void tearDown()
+    {
+        driver.quit();
+    }
 }
 
 
