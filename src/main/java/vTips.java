@@ -32,7 +32,7 @@ public class vTips {
     @Test()
     public void flipKart()
     {
-        driver.findElement(By.xpath("//android.widget.ImageButton[@content-desc=\"Open navigation drawer\"]\n"))
+        driver.findElement(By.xpath("//android.widget.ImageButton[@content-desc=\"Open navigation drawer\"]\n"));
     }
 
 
