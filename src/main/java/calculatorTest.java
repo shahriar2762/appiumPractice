@@ -18,11 +18,11 @@ public class calculatorTest {
 
         DesiredCapabilities dc = new DesiredCapabilities();
 
-        dc.setCapability("platformVersion", "9.0");
-        dc.setCapability("platformName", "ANDROID");
+        dc.setCapability("platformVersion", "11.0");
+        dc.setCapability("platformName", "Android");
         dc.setCapability("deviceName", "emulator-5554");
         dc.setCapability("udid","emulator-5554");
-        dc.setCapability("appPackage","com.android.calculator2");
+        dc.setCapability("appPackage","com.google.android.calculator");
         dc.setCapability("appActivity", "com.android.calculator2.Calculator");
 
 
