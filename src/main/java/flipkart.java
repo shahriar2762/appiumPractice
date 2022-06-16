@@ -1,5 +1,6 @@
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -40,19 +41,35 @@ public class flipkart {
 
         Thread.sleep(6000);
 
-        driver.findElement(By.xpath("//android.widget.ImageButton[@content-desc=\"Drawer\"]")).click();
+        WebElement drawer =  driver.findElement(By.xpath("//android.widget.ImageButton[@content-desc=\"Drawer\"]"));
+        drawer.click();
 
 
-        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[12]/android.widget.LinearLayout[3]/android.widget.RelativeLayout/android.widget.TextView")).click();
+        WebElement cart = driver.findElement(By.xpath("//android.widget.TextView[@text = 'My Cart']"));
+        cart.click();
 
-        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.widget.HorizontalScrollView/android.view.ViewGroup/android.view.ViewGroup[2]")).click();
+        WebElement cart_gorcery_tab = driver.findElement(By.xpath("//android.widget.TextView[@text = 'Grocery']"));
+        cart_gorcery_tab.click();
 
-        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.widget.HorizontalScrollView/android.view.ViewGroup/android.view.ViewGroup[1]")).click();
+        WebElement cart_flipkart_tab =  driver.findElement(By.xpath("//android.widget.TextView[@text = 'Flipkart']"));
+        cart_flipkart_tab.click();
+        Thread.sleep(3000);
 
-        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.TextView")).click();
+        WebElement continue_shopping=  driver.findElement(By.xpath("//android.widget.TextView[@text = 'Continue Shopping ']"));
+        continue_shopping.click();
 
 //        driver.findElement(By.id("select_btn")).click();
         Thread.sleep(7000);
+
+        WebElement explore = driver.findElement(By.xpath("//android.view.ViewGroup[@index = '2']"));
+        explore.click();
+
+        WebElement sell_back = driver.findElement(By.xpath("//android.view.ViewGroup[@index = '0']"));
+        sell_back.click();
+
+
+
+
     }
 
 
